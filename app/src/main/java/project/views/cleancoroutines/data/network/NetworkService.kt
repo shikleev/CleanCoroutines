@@ -17,17 +17,17 @@ object NetworkService {
 
     private val loggingInterceptor = run {
         val httpLoggingInterceptor = HttpLoggingInterceptor()
-        httpLoggingInterceptor.apply { httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY }
+        httpLoggingInterceptor.apply {
+            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+        }
     }
 
     private val baseInterceptor: Interceptor = invoke { chain ->
-
-        val builder: HttpUrl.Builder = chain
-                .request()
-                .url
-                .newBuilder()
-
-        val newUrl: HttpUrl = builder.build()
+        val newUrl = chain
+            .request()
+            .url
+            .newBuilder()
+            .build()
 
         val request = chain
                 .request()
@@ -52,5 +52,4 @@ object NetworkService {
                 .build()
                 .create(Api::class.java)
     }
-
 }

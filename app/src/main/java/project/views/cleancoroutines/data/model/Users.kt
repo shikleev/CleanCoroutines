@@ -3,7 +3,7 @@ package project.views.cleancoroutines.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class User(
+data class Users(
     @SerializedName("count")
     var count: Int?,
     @SerializedName("items")

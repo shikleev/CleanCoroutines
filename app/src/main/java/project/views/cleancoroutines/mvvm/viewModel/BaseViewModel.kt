@@ -15,7 +15,9 @@ abstract class BaseViewModel : ViewModel() {
     var api: Api = NetworkService.retrofitService()
 
 
-    fun <T> requestWithLiveData(liveData: MutableLiveData<Event<T>>, request: suspend () -> ResponseWrapper<T>) {
+    fun <T> requestWithLiveData(
+        liveData: MutableLiveData<Event<T>>,
+        request: suspend () -> ResponseWrapper<T>) {
 
         liveData.postValue(Event.loading())
 
@@ -34,7 +36,9 @@ abstract class BaseViewModel : ViewModel() {
         }
     }
 
-    fun <T> requestWithCallback(request: suspend () -> ResponseWrapper<T>, response: (Event<T>) -> Unit) {
+    fun <T> requestWithCallback(
+        request: suspend () -> ResponseWrapper<T>,
+        response: (Event<T>) -> Unit) {
 
         response(Event.loading())
 
@@ -55,5 +59,4 @@ abstract class BaseViewModel : ViewModel() {
             }
         }
     }
-
 }

@@ -6,7 +6,6 @@ import project.views.cleancoroutines.data.model.Error
 data class Event<out T>(val status: Status, val data: T?, val error: Error?) {
 
     companion object {
-
         fun <T> loading(): Event<T> {
             return Event(Status.LOADING, null, null)
         }
@@ -20,3 +19,5 @@ data class Event<out T>(val status: Status, val data: T?, val error: Error?) {
         }
     }
 }
+
+

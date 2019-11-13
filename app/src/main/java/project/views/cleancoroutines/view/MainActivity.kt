@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_main.*
 import project.views.cleancoroutines.R
 import project.views.cleancoroutines.data.model.Error
-import project.views.cleancoroutines.data.model.User
+import project.views.cleancoroutines.data.model.Users
 import project.views.cleancoroutines.mvvm.Status
 import project.views.cleancoroutines.mvvm.viewModel.ActivityViewModel
 
@@ -60,10 +60,10 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun viewOneSuccess(data: User?) {
-        val userList: MutableList<User.Item>? = data?.items as MutableList<User.Item>?
-        userList?.shuffle()
-        userList?.let {
+    private fun viewOneSuccess(data: Users?) {
+        val usersList: MutableList<Users.Item>? = data?.items as MutableList<Users.Item>?
+        usersList?.shuffle()
+        usersList?.let {
             Toast.makeText(applicationContext, "${it}", Toast.LENGTH_SHORT).show()
         }
     }
@@ -72,12 +72,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
     private fun viewTwoLoading() {
 
     }
 
-    private fun viewTwoSuccess(data: User?) {
+    private fun viewTwoSuccess(data: Users?) {
 
     }
 
@@ -86,6 +85,4 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(applicationContext, error.errorMsg, Toast.LENGTH_SHORT).show()
         }
     }
-
-
 }
