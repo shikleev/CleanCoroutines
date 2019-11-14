@@ -55,7 +55,9 @@ abstract class BaseViewModel : ViewModel() {
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
-                response(Event.error(null))
+                launch(Dispatchers.Main) {
+                    response(Event.error(null))
+                }
             }
         }
     }
